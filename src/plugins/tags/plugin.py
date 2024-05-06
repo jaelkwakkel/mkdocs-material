@@ -170,7 +170,7 @@ class TagsPlugin(BasePlugin[TagsConfig]):
 
             # Render link to page
             title = page.meta.get("title", page.title)
-            content.append(f"    - [{title}]({url})")
+            content.append(f"    - TEST123 [{title}]({url})")
 
         # Return rendered tag links
         return "\n".join(content)
