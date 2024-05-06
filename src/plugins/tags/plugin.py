@@ -160,7 +160,8 @@ class TagsPlugin(BasePlugin[TagsConfig]):
 
         # Render section for tag and a link to each page
         classes = " ".join(classes)
-        content = [f"## <span class=\"{classes}\">{tag}</span>", ""]
+        content = [f"??? note {tag}\n", ""]
+        # content.append(f"## <span class=\"{classes}\">{tag}</span>", "")
         for page in pages:
             url = utils.get_relative_url(
                 page.file.src_uri,
@@ -169,7 +170,7 @@ class TagsPlugin(BasePlugin[TagsConfig]):
 
             # Render link to page
             title = page.meta.get("title", page.title)
-            content.append(f"- [{title}]({url})")
+            content.append(f"    - [{title}]({url})")
 
         # Return rendered tag links
         return "\n".join(content)
